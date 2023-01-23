@@ -1,0 +1,68 @@
+ Números primos
+ -- Criar uma função em sua linguagem preferida. A função deve receber um numero N > 1 (validar o input), e retornar todos os números primos até o numero
+ N. EX. p(2) = [2]; p(3) = [2, 3]; p(10) = [2, 3, 5, 7];
+ 
+ def primos(n):
+    if n < 2:
+        return "Entrada inválida. Insira um número maior que 1."
+    primoslista = []
+    for num in range(2, n + 1):
+        primo = True
+        for i in range(2, num):
+            if (num % i) == 0:
+                primo = False
+                break
+        if primo:
+            primoslista.append(num)
+    return primoslista
+
+
+print(primos(-1))
+print(primos(2))
+print(primos(3))
+print(primos(50))
+_________________________________________________________________________________________________________________________________________________________________________
+--- Criar uma função recursiva que resolva p
+
+def primos_recursive(n, start=2, primoslista=None):
+    if primoslista is None:
+        primoslista = []
+    if n < 2:
+        return "Entrada inválida. Insira um número maior que 1."
+    if start > n:
+        return primoslista
+    primo = True
+    for i in range(2, start):
+        if (start % i) == 0:
+            primo = False
+            break
+    if primo:
+        primoslista.append(start)
+    return primos_recursive(n, start + 1, primoslista)
+
+
+print(primos_recursive(2))
+print(primos_recursive(3))
+print(primos_recursive(50))
+_________________________________________________________________________________________________________________________________________________________________________
+--- Criar uma função linear que resolva p
+
+def primos_linear(n):
+    if n < 2:
+        return "Entrada inválida. Insira um número maior que 1."
+    primos = [2]
+    for i in range(3, n + 1):
+        is_primo = True
+        for j in range(2, int(i ** (1 / 2)) + 1):
+            if i % j == 0:
+                is_primo = False
+                break
+        if is_primo:
+            primos.append(i)
+    return primos
+
+
+print(primos_linear(-1))
+print(primos_linear(2))
+print(primos_linear(3))
+print(primos_linear(20))
