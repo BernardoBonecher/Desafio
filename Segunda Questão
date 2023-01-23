@@ -1,0 +1,67 @@
+Fibonnaci
+Criar uma função em sua linguagem preferida. A função deve receber um numero N >= 0 (deve validar o input para a função), e retornar o valor correspondente desse número
+na sequencia fibonnaci. EX. fib(0) =0; fib(1) = 1; fib(2) = 1; fib(3) = 2; fib(5) = 5; fib(6) = 8.
+
+def fib(n):
+    if n < 0:
+        return "Entrada inválida. Insira um número inteiro positivo."
+    elif n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+
+
+print(fib(-1))
+print(fib(1))
+print(fib(2))
+print(fib(3))
+print(fib(5))
+print(fib(6))
+__________________________________________________________________________________________________________________________________________________________________________
+ --- Criar uma função recursiva que resolva fibonacci
+
+def fib_recursivo(n):
+    if n < 0:
+        return "Entrada inválida. Insira um número inteiro positivo."
+    elif n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib_recursivo(n - 1) + fib_recursivo(n - 2)
+
+
+print(fib_recursivo(-1))
+print(fib_recursivo(1))
+print(fib_recursivo(2))
+print(fib_recursivo(3))
+print(fib_recursivo(5))
+print(fib_recursivo(50))
+__________________________________________________________________________________________________________________________________________________________________________
+    --- Criar uma função linear que resolva fibonnaciv
+
+def fib_linear(n):
+    if n < 0:
+        return "Entrada inválida. Insira um número inteiro positivo."
+    elif n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        ona = 0
+        cci = 1
+        for i in range(2, n + 1):
+            fib = ona + cci
+            ona = cci
+            cci = fib
+        return cci
+
+
+print(fib_linear(-1))
+print(fib_linear(1))
+print(fib_linear(2))
+print(fib_linear(3))
+print(fib_linear(5))
+print(fib_linear(6))
